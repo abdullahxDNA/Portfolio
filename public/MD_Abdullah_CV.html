@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MD Abdullah – CV</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    font-size: 10.5pt;
+    color: #1a1a1a;
+    background: #eef1f5;
+    line-height: 1.5;
+  }
+
+  .page {
+    max-width: 210mm;
+    margin: 20px auto;
+    background: #fff;
+    box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  }
+
+  /* Header */
+  .header {
+    background: #1b3e6f;
+    color: #fff;
+    padding: 26px 36px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+  }
+  .header-left h1 {
+    font-size: 22pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 3px;
+  }
+  .header-left .title {
+    font-size: 9.5pt;
+    color: #a8c4e0;
+    font-weight: 500;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3px 24px;
+    font-size: 8.5pt;
+    color: #d0e4f7;
+  }
+  .contact-grid a { color: #7cb8f0; text-decoration: none; }
+  .contact-item { display: flex; align-items: center; gap: 6px; }
+
+  .photo-box {
+    width: 86px; height: 106px;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 4px;
+    background: rgba(255,255,255,0.07);
+    flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 7.5pt; color: rgba(255,255,255,0.35); text-align: center; line-height: 1.4;
+  }
+
+  /* Body layout */
+  .body { display: grid; grid-template-columns: 195px 1fr; }
+
+  /* Sidebar */
+  .sidebar {
+    background: #f4f7fb;
+    padding: 20px 16px;
+    border-right: 1px solid #dde5f0;
+  }
+  .sb-title {
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #1b3e6f;
+    margin-bottom: 9px; padding-bottom: 4px;
+    border-bottom: 2px solid #1b3e6f;
+    margin-top: 16px;
+  }
+  .sb-title:first-child { margin-top: 0; }
+
+  .skill-group { margin-bottom: 9px; }
+  .skill-group .gl { font-size: 7.5pt; font-weight: 700; color: #2d5a99; margin-bottom: 3px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 3px; }
+  .tag {
+    background: #dce9f7; color: #1b3e6f;
+    font-size: 7.5pt; padding: 2px 6px; border-radius: 2px; font-weight: 500;
+  }
+  .tag.dim { background: #eef2f8; color: #5577aa; font-style: italic; }
+
+  .note-box {
+    background: #fff8e6; border-left: 3px solid #e8a800;
+    padding: 6px 8px; border-radius: 2px;
+    font-size: 7.5pt; color: #7a5c00; line-height: 1.4; margin-top: 6px;
+  }
+
+  .lang-item {
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 8.5pt; margin-bottom: 5px;
+  }
+  .dots { display: flex; gap: 2px; }
+  .dot { width: 7px; height: 7px; border-radius: 50%; background: #c5d9ef; }
+  .dot.on { background: #1b3e6f; }
+
+  .cert-item { margin-bottom: 9px; }
+  .cert-item .cn { font-size: 8.5pt; font-weight: 600; color: #1a1a1a; line-height: 1.3; }
+  .cert-item .co { font-size: 7.5pt; color: #555; margin-top: 1px; }
+  .cert-item .cy { font-size: 7.5pt; color: #1b3e6f; font-weight: 600; margin-top: 1px; }
+
+  /* Main */
+  .main { padding: 20px 28px; }
+  .section { margin-bottom: 17px; }
+  .sec-title {
+    font-size: 7.5pt; font-weight: 700; letter-spacing: 2px;
+    text-transform: uppercase; color: #1b3e6f;
+    padding-bottom: 4px; border-bottom: 2px solid #1b3e6f; margin-bottom: 11px;
+  }
+
+  .summary-text { font-size: 9.5pt; color: #333; line-height: 1.6; text-align: justify; }
+
+  /* Education */
+  .edu-item { margin-bottom: 10px; }
+  .edu-item .deg { font-size: 10pt; font-weight: 700; color: #1a1a1a; }
+  .edu-item .inst { font-size: 9pt; color: #2d5a99; font-weight: 600; }
+  .edu-item .emeta { display: flex; justify-content: space-between; font-size: 8.5pt; color: #555; margin-top: 2px; }
+  .edu-item .gpa { font-weight: 700; color: #1b3e6f; }
+
+  /* Projects */
+  .proj { margin-bottom: 14px; }
+  .proj-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+  .proj-name { font-size: 10pt; font-weight: 700; color: #1a1a1a; flex: 1; }
+  .proj-badge {
+    font-size: 7pt; background: #1b3e6f; color: #fff;
+    padding: 1px 7px; border-radius: 2px; white-space: nowrap; flex-shrink: 0;
+  }
+  .proj-tech { font-size: 7.5pt; color: #2d5a99; margin: 2px 0 4px; }
+  .proj-tech span { font-style: italic; }
+  .proj ul { padding-left: 14px; font-size: 9pt; color: #333; }
+  .proj ul li { margin-bottom: 2px; line-height: 1.45; }
+
+  /* Achievements */
+  .ach { display: flex; gap: 7px; font-size: 9pt; color: #333; margin-bottom: 5px; }
+  .ach::before { content: "▸"; color: #1b3e6f; font-size: 10pt; flex-shrink: 0; line-height: 1.45; }
+
+  /* Reference */
+  .ref-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  .ref-item { font-size: 9pt; }
+  .ref-item .rn { font-weight: 700; color: #1a1a1a; }
+  .ref-item .rt { color: #2d5a99; font-size: 8.5pt; }
+  .ref-item .ro { color: #555; font-size: 8.5pt; }
+  .ref-item .rc { color: #333; font-size: 8pt; margin-top: 2px; }
+
+  .declaration {
+    padding: 16px 28px 20px;
+    border-top: 1px solid #dde5f0;
+  }
+  .declaration p {
+    font-size: 8.5pt; color: #444; font-style: italic; margin-bottom: 20px;
+  }
+  .sig-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    font-size: 8.5pt; color: #333; gap: 8px;
+  }
+  .sig-line {
+    border-top: 1px solid #333; padding-top: 4px; margin-top: 28px;
+  }
+
+  .footer-strip { background: #1b3e6f; height: 5px; }
+
+  @media print {
+    body { background: #fff; }
+    .page { margin: 0; box-shadow: none; max-width: 100%; }
+    @page { margin: 0; size: A4; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="header-left">
+      <h1>MD ABDULLAH</h1>
+      <div class="title">Computer Science &amp; Engineering Graduate | IT Professional</div>
+      <div class="contact-grid">
+        <div class="contact-item">📍 Chattogram, Bangladesh</div>
+        <div class="contact-item">📞 +880 1741012650</div>
+        <div class="contact-item">✉ <a href="mailto:mdabdullah10301@gmail.com">mdabdullah10301@gmail.com</a></div>
+        <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/abdullahlisan">linkedin.com/in/abdullahlisan</a></div>
+        <div class="contact-item">💻 <a href="https://github.com/abdullahxDNA">github.com/abdullahxDNA</a></div>
+        <div class="contact-item">DOB: 10 March 2001</div>
+      </div>
+    </div>
+    <div class="photo-box">Photo<br>Here</div>
+  </div>
+
+  <div class="body">
+    <!-- Sidebar -->
+    <div class="sidebar">
+
+      <div class="sb-title">Technical Skills</div>
+
+      <div class="skill-group">
+        <div class="gl">Programming</div>
+        <div class="tags">
+          <span class="tag">C</span>
+          <span class="tag">C++</span>
+          <span class="tag">JavaScript (Basic)</span>
+          <span class="tag">TypeScript (Basic)</span>
+          <span class="tag">Python (Basic)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="gl">Web Development</div>
+        <div class="tags">
+          <span class="tag">HTML</span>
+          <span class="tag">CSS</span>
+          <span class="tag">React (Basic)</span>
+          <span class="tag">Tailwind CSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="gl">Database</div>
+        <div class="tags">
+          <span class="tag">PostgreSQL (Basic)</span>
+          <span class="tag">MySQL (Basic)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="gl">Tools &amp; Workflow</div>
+        <div class="tags">
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">ClickUp</span>
+          <span class="tag">AI-Assisted Dev</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="gl">Academic Exposure</div>
+        <div class="tags">
+          <span class="tag dim">Blockchain concepts</span>
+          <span class="tag dim">Hyperledger Fabric (concepts)</span>
+          <span class="tag dim">ML workflow (academic)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="gl">Office &amp; Computer Skills</div>
+        <div class="tags">
+          <span class="tag">MS Word</span>
+          <span class="tag">MS Excel</span>
+          <span class="tag">MS PowerPoint</span>
+          <span class="tag">Google Docs</span>
+          <span class="tag">Google Sheets</span>
+          <span class="tag">Email &amp; Browser Tools</span>
+          <span class="tag">File Management</span>
+          <span class="tag">PDF Handling</span>
+          <span class="tag">Data Entry</span>
+          <span class="tag">Windows &amp; Ubuntu</span>
+        </div>
+      </div>
+
+      <div class="sb-title">Languages</div>
+
+      <div class="lang-item">
+        <span>Bengali</span>
+        <div class="dots">
+          <div class="dot on"></div><div class="dot on"></div>
+          <div class="dot on"></div><div class="dot on"></div><div class="dot on"></div>
+        </div>
+      </div>
+      <div class="lang-item">
+        <span>English</span>
+        <div class="dots">
+          <div class="dot on"></div><div class="dot on"></div>
+          <div class="dot on"></div><div class="dot on"></div><div class="dot"></div>
+        </div>
+      </div>
+      <div class="lang-item">
+        <span>Hindi / Urdu</span>
+        <div class="dots">
+          <div class="dot on"></div><div class="dot on"></div>
+          <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        </div>
+      </div>
+
+      <div class="sb-title">Certifications</div>
+
+      <div class="cert-item">
+        <div class="cn">Fullstack Blockchain Development</div>
+        <div class="co">NonAcademy — Batch 02</div>
+        <div class="cy">2025</div>
+      </div>
+      <div class="cert-item">
+        <div class="cn">Front-End Development</div>
+        <div class="co">EDGE Project – CUET, Bangladesh Computer Council</div>
+        <div class="cy">Aug – Dec 2024</div>
+      </div>
+      <div class="cert-item">
+        <div class="cn">Introduction to Blockchain Technology</div>
+        <div class="co">Ostad Platform</div>
+      </div>
+      <div class="cert-item">
+        <div class="cn">Online Leadership Course</div>
+        <div class="co">Aspire Leaders Program</div>
+        <div class="cy">March 2023</div>
+      </div>
+
+      <div class="sb-title">Soft Skills</div>
+      <div style="display:flex;flex-direction:column;gap:3px">
+        <span style="font-size:8.5pt;color:#333;">• Team Collaboration</span>
+        <span style="font-size:8.5pt;color:#333;">• PRD &amp; Feature Planning</span>
+        <span style="font-size:8.5pt;color:#333;">• Technical Documentation</span>
+        <span style="font-size:8.5pt;color:#333;">• Problem Solving</span>
+        <span style="font-size:8.5pt;color:#333;">• Adaptability</span>
+        <span style="font-size:8.5pt;color:#333;">• AI Tool Usage</span>
+      </div>
+
+    </div>
+
+    <!-- Main -->
+    <div class="main">
+
+      <!-- Objective -->
+      <div class="section">
+        <div class="sec-title">Career Objective</div>
+        <p class="summary-text">
+          Computer Science and Engineering graduate from International Islamic University Chittagong (IIUC) seeking
+          an entry-level opportunity in any IT-related or technology-driven field. Practical experience in web
+          development projects using React, Hono, and PostgreSQL. Comfortable with computer operation, documentation,
+          data handling, team collaboration, and learning new tools quickly. Open to roles in web development,
+          IT support, software QA, data entry, computer operation, technical support, MIS, customer support, or
+          any position where my technical background and eagerness to learn can contribute to the organization.
+        </p>
+      </div>
+
+      <!-- Education -->
+      <div class="section">
+        <div class="sec-title">Education</div>
+
+        <div class="edu-item">
+          <div class="deg">Bachelor of Science in Computer Science &amp; Engineering (CSE)</div>
+          <div class="inst">International Islamic University Chittagong (IIUC)</div>
+          <div class="emeta">
+            <span>2021 – 2025</span>
+            <span class="gpa">CGPA: 3.367 / 4.00</span>
+          </div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">Higher Secondary Certificate (HSC) — Science</div>
+          <div class="inst">Hazera-Taju University College</div>
+          <div class="emeta"><span>2018 – 2019</span><span class="gpa">GPA: 4.33 / 5.00</span></div>
+        </div>
+        <div class="edu-item">
+          <div class="deg">Secondary School Certificate (SSC) — Science</div>
+          <div class="inst">CDA Public School and College</div>
+          <div class="emeta"><span>2016 – 2017</span><span class="gpa">GPA: 5.00 / 5.00</span></div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div class="section">
+        <div class="sec-title">Projects</div>
+
+        <!-- DeshGhuri -->
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">DeshGhuri – Travel Marketplace Platform</div>
+            <div class="proj-badge">Team Project | 2025–2026</div>
+          </div>
+          <div style="font-size:7.5pt;margin-bottom:3px;color:#1b3e6f;">github.com/samin124/DeshGhuri</div>
+          <div class="proj-tech"><strong>Tools used in project:</strong> <span>React · TanStack Router · TanStack Query · Hono · Better Auth · PostgreSQL · Drizzle ORM · Tailwind CSS · shadcn/ui · Bun</span></div>
+          <ul>
+            <li>Wrote the product requirement document (PRD) and managed feature breakdown in ClickUp with teammates.</li>
+            <li>My main contribution: built the <strong>seller authentication routes</strong> (signup, signin, session management) using Hono and Zod validation.</li>
+            <li>Built the <strong>seller dashboard backend API</strong> — stats, revenue summaries, bookings, and listing analytics using Drizzle ORM and PostgreSQL.</li>
+            <li>Implemented the <strong>admin verification system</strong> for seller applications and replaced Cloudinary storage with Supabase Storage.</li>
+            <li>Developed seller-side UI components: dashboard layout, onboarding steps, status badges, and pagination in React.</li>
+            <li>Collaborated with 2 teammates using Git branching, pull requests, and code review workflow.</li>
+            <li>Used Claude Code (AI coding assistant) as part of the development workflow.</li>
+          </ul>
+        </div>
+
+        <!-- c-tamurfood -->
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">Tampurfood – B2B Bakery Ordering Platform</div>
+            <div class="proj-badge">In Progress | 2026</div>
+          </div>
+          <div style="font-size:7.5pt;margin-bottom:3px;color:#1b3e6f;">github.com/abdullahxDNA/Tampurfood</div>
+          <div class="proj-tech"><strong>Tools used in project:</strong> <span>React · Hono · Bun · Better Auth · PostgreSQL · Drizzle ORM · Supabase Realtime · Tailwind CSS · TanStack Router</span></div>
+          <ul>
+            <li>Wrote the PRD and defined the B2B ordering workflow for bakery shop-to-customer operations.</li>
+            <li>Set up the full monorepo infrastructure from scratch: Bun workspaces, Vite frontend, Hono backend, Drizzle ORM, and local Supabase for PostgreSQL.</li>
+            <li>Currently developing order management, menu, shop, and admin routes (work in progress).</li>
+            <li>Used Claude Code (AI coding assistant) as part of the development workflow.</li>
+          </ul>
+        </div>
+
+        <!-- Blockchain Thesis -->
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">Blockchain-Based Agricultural Food Supply Chain</div>
+            <div class="proj-badge">University Thesis | 2024–2025</div>
+          </div>
+          <div style="font-size:7.5pt;margin-bottom:3px;color:#1b3e6f;">github.com/abdullahxDNA/agrifood-blockchain-hyperledger</div>
+          <div class="proj-tech"><strong>Tools used in project:</strong> <span>Hyperledger Fabric · Go (AI-assisted chaincode) · Docker · CouchDB · Ubuntu</span></div>
+          <ul>
+            <li>Designed the traceability workflow covering farmer → retailer → customer lifecycle with role-based access.</li>
+            <li>Understood and documented Hyperledger Fabric concepts: organizations, peers, channels, endorsement policy, and distributed ledger.</li>
+            <li>Set up the Fabric network environment with Docker and contributed to testing and verification scenarios.</li>
+            <li>Go chaincode was implemented with AI assistance; my focus was workflow design, concept understanding, documentation, and thesis presentation.</li>
+          </ul>
+        </div>
+
+        <!-- ML -->
+        <div class="proj">
+          <div class="proj-head">
+            <div class="proj-name">Lung Cancer Detection Using Ensemble CNNs</div>
+            <div class="proj-badge">University Project | 2025</div>
+          </div>
+          <div style="font-size:7.5pt;margin-bottom:3px;color:#1b3e6f;">github.com/abdullahxDNA/lung_cancer_prediction_using_ML</div>
+          <div class="proj-tech"><strong>Tools used in project:</strong> <span>Python · TensorFlow / Keras · Xception · ResNet50 · Scikit-learn</span></div>
+          <ul>
+            <li>Academic project combining Xception and ResNet50 models for medical image classification.</li>
+            <li>Worked on dataset preparation, training workflow, and evaluation metrics as part of a university team.</li>
+            <li>Learned ML fundamentals and deep learning pipeline concepts through this project.</li>
+            <li><em>Note: This was an academic learning project; I am not currently practicing ML/AI development.</em></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="section">
+        <div class="sec-title">Achievements &amp; Activities</div>
+        <div class="ach"><span><strong>Top 10 Finalist – Hult Prize at IIUC 2023:</strong> Developed a business plan, market analysis, and social enterprise pitch as part of a competitive team challenge.</span></div>
+        <div class="ach"><span><strong>Honorable Achievement – Face The Case 3.0, IEEE CUET Student Branch:</strong> Recognised for analytical thinking and problem-solving in a national case competition.</span></div>
+        <div class="ach"><span>Active in IIUC Biz Communication Club and represented in Interactive Cares Career Fair 3.0.</span></div>
+        <div class="ach"><span>Participated in university business strategy and brand competitions; member of student tech and debate clubs.</span></div>
+      </div>
+
+      <!-- Reference -->
+      <div class="section">
+        <div class="sec-title">Reference</div>
+        <div class="ref-item">
+          <div class="rn">Prof. Abdullahil Kafi</div>
+          <div class="rt">Assistant Professor, Department of CSE</div>
+          <div class="ro">International Islamic University Chittagong (IIUC)</div>
+          <div class="rc">✉ abkafi@gmail.com | abkafi@iiuc.ac.bd<br>📞 +880 1720155585</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Declaration & Signature -->
+  <div class="declaration">
+    <p>I hereby declare that all the information stated above is true and correct to the best of my knowledge and belief.</p>
+    <div style="width:160px;">
+      <div class="sig-line"><strong>MD Abdullah</strong></div>
+      <div style="font-size:7.5pt;color:#555;">Signature</div>
+    </div>
+  </div>
+
+  <div class="footer-strip"></div>
+</div>
+</body>
+</html>
