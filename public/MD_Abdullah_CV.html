@@ -9,7 +9,7 @@
 
   body {
     font-family: 'Segoe UI', Arial, sans-serif;
-    font-size: 10.5pt;
+    font-size: 9.8pt;
     color: #1a1a1a;
     background: #eef1f5;
     line-height: 1.5;
@@ -26,7 +26,7 @@
   .header {
     background: #1b3e6f;
     color: #fff;
-    padding: 26px 36px 20px;
+    padding: 24px 32px 18px;
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
@@ -60,10 +60,11 @@
     width: 86px; height: 106px;
     border: 2px solid rgba(255,255,255,0.3);
     border-radius: 4px;
-    background: rgba(255,255,255,0.07);
     flex-shrink: 0;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 7.5pt; color: rgba(255,255,255,0.35); text-align: center; line-height: 1.4;
+    background-image: url('photo.jpg');
+    background-size: 240%;
+    background-position: 44% 15%;
+    background-repeat: no-repeat;
   }
 
   /* Body layout */
@@ -72,15 +73,15 @@
   /* Sidebar */
   .sidebar {
     background: #f4f7fb;
-    padding: 20px 16px;
+    padding: 18px 14px;
     border-right: 1px solid #dde5f0;
   }
   .sb-title {
     font-size: 7.5pt; font-weight: 700; letter-spacing: 2px;
     text-transform: uppercase; color: #1b3e6f;
-    margin-bottom: 9px; padding-bottom: 4px;
+    margin-bottom: 8px; padding-bottom: 4px;
     border-bottom: 2px solid #1b3e6f;
-    margin-top: 16px;
+    margin-top: 14px;
   }
   .sb-title:first-child { margin-top: 0; }
 
@@ -113,8 +114,8 @@
   .cert-item .cy { font-size: 7.5pt; color: #1b3e6f; font-weight: 600; margin-top: 1px; }
 
   /* Main */
-  .main { padding: 20px 28px; }
-  .section { margin-bottom: 17px; }
+  .main { padding: 18px 26px; }
+  .section { margin-bottom: 14px; }
   .sec-title {
     font-size: 7.5pt; font-weight: 700; letter-spacing: 2px;
     text-transform: uppercase; color: #1b3e6f;
@@ -131,7 +132,7 @@
   .edu-item .gpa { font-weight: 700; color: #1b3e6f; }
 
   /* Projects */
-  .proj { margin-bottom: 14px; }
+  .proj { margin-bottom: 13px; }
   .proj-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
   .proj-name { font-size: 10pt; font-weight: 700; color: #1a1a1a; flex: 1; }
   .proj-badge {
@@ -156,7 +157,7 @@
   .ref-item .rc { color: #333; font-size: 8pt; margin-top: 2px; }
 
   .declaration {
-    padding: 16px 28px 20px;
+    padding: 10px 28px 12px;
     border-top: 1px solid #dde5f0;
   }
   .declaration p {
@@ -167,7 +168,7 @@
     font-size: 8.5pt; color: #333; gap: 8px;
   }
   .sig-line {
-    border-top: 1px solid #333; padding-top: 4px; margin-top: 28px;
+    border-top: 1px solid #333; padding-top: 4px; margin-top: 4px;
   }
 
   .footer-strip { background: #1b3e6f; height: 5px; }
@@ -175,7 +176,24 @@
   @media print {
     body { background: #fff; }
     .page { margin: 0; box-shadow: none; max-width: 100%; }
-    @page { margin: 0; size: A4; }
+    @page { margin: 10mm 0; size: A4; }
+    .header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .sidebar { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .proj-badge { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .tag { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .footer-strip { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .body { display: block; }
+    .sidebar { float: left; width: 195px; min-height: 1px; }
+    .main { margin-left: 195px; border-left: 1px solid #dde5f0; }
+    .proj { break-inside: avoid; }
+    .edu-item { break-inside: avoid; }
+    .sec-title { break-after: avoid; }
+    .proj-head { break-after: avoid; }
+    .ach { break-inside: avoid; }
+    .cert-item { break-inside: avoid; }
+    .ref-item { break-inside: avoid; }
+    .declaration { clear: both; }
+    .footer-strip { clear: both; }
   }
 </style>
 </head>
@@ -193,10 +211,11 @@
         <div class="contact-item">✉ <a href="mailto:mdabdullah10301@gmail.com">mdabdullah10301@gmail.com</a></div>
         <div class="contact-item">🔗 <a href="https://www.linkedin.com/in/abdullahlisan">linkedin.com/in/abdullahlisan</a></div>
         <div class="contact-item">💻 <a href="https://github.com/abdullahxDNA">github.com/abdullahxDNA</a></div>
+        <div class="contact-item">🌐 <a href="https://mdabdullah.dev">mdabdullah.dev</a></div>
         <div class="contact-item">DOB: 10 March 2001</div>
       </div>
     </div>
-    <div class="photo-box">Photo<br>Here</div>
+    <div class="photo-box"></div>
   </div>
 
   <div class="body">
@@ -378,7 +397,7 @@
             <div class="proj-name">DeshGhuri – Travel Marketplace Platform</div>
             <div class="proj-badge">Team Project | 2025–2026</div>
           </div>
-          <div style="font-size:7.5pt;margin-bottom:3px;color:#1b3e6f;">github.com/samin124/DeshGhuri</div>
+          <div style="font-size:7.5pt;margin-bottom:3px;"><a href="https://github.com/samin124/DeshGhuri" style="color:#1b3e6f;">github.com/samin124/DeshGhuri</a></div>
           <div class="proj-tech"><strong>Tools used in project:</strong> <span>React · TanStack Router · TanStack Query · Hono · Better Auth · PostgreSQL · Drizzle ORM · Tailwind CSS · shadcn/ui · Bun</span></div>
           <ul>
             <li>Wrote the product requirement document (PRD) and managed feature breakdown in ClickUp with teammates.</li>
@@ -397,7 +416,7 @@
             <div class="proj-name">Tampurfood – B2B Bakery Ordering Platform</div>
             <div class="proj-badge">In Progress | 2026</div>
           </div>
-          <div style="font-size:7.5pt;margin-bottom:3px;color:#1b3e6f;">github.com/abdullahxDNA/Tampurfood</div>
+          <div style="font-size:7.5pt;margin-bottom:3px;"><a href="https://github.com/abdullahxDNA/Tampurfood" style="color:#1b3e6f;">github.com/abdullahxDNA/Tampurfood</a></div>
           <div class="proj-tech"><strong>Tools used in project:</strong> <span>React · Hono · Bun · Better Auth · PostgreSQL · Drizzle ORM · Supabase Realtime · Tailwind CSS · TanStack Router</span></div>
           <ul>
             <li>Wrote the PRD and defined the B2B ordering workflow for bakery shop-to-customer operations.</li>
@@ -413,7 +432,7 @@
             <div class="proj-name">Blockchain-Based Agricultural Food Supply Chain</div>
             <div class="proj-badge">University Thesis | 2024–2025</div>
           </div>
-          <div style="font-size:7.5pt;margin-bottom:3px;color:#1b3e6f;">github.com/abdullahxDNA/agrifood-blockchain-hyperledger</div>
+          <div style="font-size:7.5pt;margin-bottom:3px;"><a href="https://github.com/abdullahxDNA/agrifood-blockchain-hyperledger" style="color:#1b3e6f;">github.com/abdullahxDNA/agrifood-blockchain-hyperledger</a></div>
           <div class="proj-tech"><strong>Tools used in project:</strong> <span>Hyperledger Fabric · Go (AI-assisted chaincode) · Docker · CouchDB · Ubuntu</span></div>
           <ul>
             <li>Designed the traceability workflow covering farmer → retailer → customer lifecycle with role-based access.</li>
@@ -429,7 +448,7 @@
             <div class="proj-name">Lung Cancer Detection Using Ensemble CNNs</div>
             <div class="proj-badge">University Project | 2025</div>
           </div>
-          <div style="font-size:7.5pt;margin-bottom:3px;color:#1b3e6f;">github.com/abdullahxDNA/lung_cancer_prediction_using_ML</div>
+          <div style="font-size:7.5pt;margin-bottom:3px;"><a href="https://github.com/abdullahxDNA/lung_cancer_prediction_using_ML" style="color:#1b3e6f;">github.com/abdullahxDNA/lung_cancer_prediction_using_ML</a></div>
           <div class="proj-tech"><strong>Tools used in project:</strong> <span>Python · TensorFlow / Keras · Xception · ResNet50 · Scikit-learn</span></div>
           <ul>
             <li>Academic project combining Xception and ResNet50 models for medical image classification.</li>
@@ -467,6 +486,7 @@
   <div class="declaration">
     <p>I hereby declare that all the information stated above is true and correct to the best of my knowledge and belief.</p>
     <div style="width:160px;">
+      <img src="signature.png" alt="Signature" style="height:40px;width:auto;display:block;margin-bottom:0px;" />
       <div class="sig-line"><strong>MD Abdullah</strong></div>
       <div style="font-size:7.5pt;color:#555;">Signature</div>
     </div>

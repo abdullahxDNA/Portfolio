@@ -213,7 +213,7 @@ function Hero() {
           </p>
           <div className="hero__actions">
             <a className="btn btn--primary" href="#projects">View Projects</a>
-            <a className="btn btn--cv" href="/MD_Abdullah_CV.html" download="MD_Abdullah_CV">↓ Download CV</a>
+            <a className="btn btn--cv" href="/MD_Abdullah_CV.pdf" download="MD_Abdullah_CV.pdf">↓ Download CV</a>
             <a className="btn" href={`mailto:${CONTACT.email}`}>Get in Touch</a>
           </div>
         </div>
@@ -382,7 +382,7 @@ export default function App() {
         <Contact />
       </main>
       <footer className="footer">
-        <p>© {year} {CONTACT.name} · Built with React &amp; Vite</p>
+        <p>© {year} {CONTACT.name}</p>
       </footer>
     </>
   )
