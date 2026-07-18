@@ -53,14 +53,17 @@ const PROJECTS = [
     desc: 'Wrote the PRD and managed feature breakdown in ClickUp. My contribution: seller authentication routes, seller dashboard backend API, and admin verification system. Collaborated with 2 teammates using Git branching workflow.',
     stack: ['React', 'TanStack Router', 'Hono', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS'],
     link: 'https://github.com/samin124/DeshGhuri',
+    demo: '', // ← paste the live/deployed URL here to show a "Live Demo" button
   },
   {
     num: '02',
-    title: 'Tampurfood — B2B Bakery Ordering',
-    tag: 'Practical Project · 2026',
-    desc: 'Wrote the PRD and defined the B2B ordering workflow for bakery operations. Set up the full monorepo infrastructure from scratch. Developing order management, menu, shop, and admin routes.',
+    title: 'Tamurfood — B2B Bakery Ordering',
+    tag: 'Personal Project · In Development · 2026',
+    preview: 'https://cdn.jsdelivr.net/gh/abdullahxDNA/Tamurfood@main/docs/screenshots/demo.gif',
+    desc: 'A B2B bakery ordering platform I have been building over the past few weeks. Wrote the PRD, defined the ordering workflow, and set up the full monorepo infrastructure from scratch. Currently developing order management, menu, shop, and admin modules. Deployed for testing.',
     stack: ['React', 'Hono', 'PostgreSQL', 'Drizzle ORM', 'Supabase Realtime', 'Tailwind CSS'],
-    link: 'https://github.com/abdullahxDNA/Tampurfood',
+    link: 'https://github.com/abdullahxDNA/Tamurfood',
+    demo: 'https://tampurfood-production.up.railway.app/',
   },
   {
     num: '03',
@@ -236,19 +239,32 @@ function Projects() {
       <h2 className="section__title">Selected Projects</h2>
       <div className="grid">
         {PROJECTS.map((p) => (
-          <article key={p.title} className="card">
+          <article key={p.title} className={`card ${p.featured ? 'card--featured' : ''}`}>
             <span className="card__num" aria-hidden="true">{p.num}</span>
+            {p.featured && <span className="card__featured">★ {p.featured}</span>}
             <span className="card__tag">{p.tag}</span>
             <h3 className="card__title">{p.title}</h3>
+            {p.preview && (
+              <a className="card__preview" href={p.demo || p.link} target="_blank" rel="noreferrer" aria-label={`${p.title} demo`}>
+                <img src={p.preview} alt={`${p.title} demo preview`} loading="lazy" />
+              </a>
+            )}
             <p className="card__desc">{p.desc}</p>
             <ul className="chips">
               {p.stack.map((s) => (
                 <li key={s} className="chip">{s}</li>
               ))}
             </ul>
-            <a className="card__link" href={p.link} target="_blank" rel="noreferrer">
-              View on GitHub &rarr;
-            </a>
+            <div className="card__links">
+              {p.demo && (
+                <a className="card__link card__link--demo" href={p.demo} target="_blank" rel="noreferrer">
+                  Live Demo &rarr;
+                </a>
+              )}
+              <a className="card__link" href={p.link} target="_blank" rel="noreferrer">
+                View on GitHub &rarr;
+              </a>
+            </div>
           </article>
         ))}
       </div>
