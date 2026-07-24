@@ -48,22 +48,22 @@ const SKILLS = [
 const PROJECTS = [
   {
     num: '01',
+    title: 'Tamurfood — B2B Bakery Ordering',
+    tag: 'Solo Project · Deployed (Demo) · 2026',
+    preview: 'https://cdn.jsdelivr.net/gh/abdullahxDNA/Tamurfood@main/docs/screenshots/demo.gif',
+    desc: 'A full-stack B2B ordering platform for a neighbourhood bakery, built solo and deployed for demo/testing. Nearby shops order from a live menu; bakery staff fulfil and deliver in real time. Features three-tier role-based access (admin/moderator/shop), real-time order updates over SSE, a per-shop "Khata" credit ledger with partial payments, concurrency-safe inventory, and an analytics dashboard. I wrote the PRD, designed the data model and workflows, and built the full monorepo (Hono API + React frontend) from scratch.',
+    stack: ['React 19', 'Hono', 'Bun', 'PostgreSQL', 'Drizzle ORM', 'Better Auth', 'Server-Sent Events', 'Tailwind CSS'],
+    link: 'https://github.com/abdullahxDNA/Tamurfood',
+    demo: 'https://tampurfood-production.up.railway.app/',
+  },
+  {
+    num: '02',
     title: 'DeshGhuri — Travel Marketplace',
     tag: 'Team Project · 2025–2026',
     desc: 'Wrote the PRD and managed feature breakdown in ClickUp. My contribution: seller authentication routes, seller dashboard backend API, and admin verification system. Collaborated with 2 teammates using Git branching workflow.',
     stack: ['React', 'TanStack Router', 'Hono', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS'],
     link: 'https://github.com/samin124/DeshGhuri',
     demo: '', // ← paste the live/deployed URL here to show a "Live Demo" button
-  },
-  {
-    num: '02',
-    title: 'Tamurfood — B2B Bakery Ordering',
-    tag: 'Personal Project · In Development · 2026',
-    preview: 'https://cdn.jsdelivr.net/gh/abdullahxDNA/Tamurfood@main/docs/screenshots/demo.gif',
-    desc: 'A B2B bakery ordering platform I have been building over the past few weeks. Wrote the PRD, defined the ordering workflow, and set up the full monorepo infrastructure from scratch. Currently developing order management, menu, shop, and admin modules. Deployed for testing.',
-    stack: ['React', 'Hono', 'PostgreSQL', 'Drizzle ORM', 'Supabase Realtime', 'Tailwind CSS'],
-    link: 'https://github.com/abdullahxDNA/Tamurfood',
-    demo: 'https://tampurfood-production.up.railway.app/',
   },
   {
     num: '03',
