@@ -1,103 +1,5 @@
 import { useState, useEffect } from 'react'
-
-const CONTACT = {
-  name: 'MD Abdullah',
-  location: 'Chattogram, Bangladesh',
-  email: 'mdabdullah10301@gmail.com',
-  phone: '+880 1741012650',
-  linkedin: 'https://www.linkedin.com/in/abdullahlisan',
-  github: 'https://github.com/abdullahxDNA',
-}
-
-const ROLES = ['Web Developer', 'CSE Graduate', 'IT Professional', 'Open to Opportunities']
-
-const DI = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons'
-
-const SKILLS = [
-  { group: 'Programming', items: [
-    { name: 'C',           logo: `${DI}/c/c-original.svg` },
-    { name: 'C++',         logo: `${DI}/cplusplus/cplusplus-original.svg` },
-    { name: 'JavaScript (Basic)',  logo: `${DI}/javascript/javascript-original.svg` },
-    { name: 'TypeScript (Basic)',  logo: `${DI}/typescript/typescript-original.svg` },
-    { name: 'Python (Basic)',      logo: `${DI}/python/python-original.svg` },
-  ]},
-  { group: 'Web Development', items: [
-    { name: 'HTML',        logo: `${DI}/html5/html5-original.svg` },
-    { name: 'CSS',         logo: `${DI}/css3/css3-original.svg` },
-    { name: 'React (Basic)',logo: `${DI}/react/react-original.svg` },
-    { name: 'Tailwind CSS',logo: `${DI}/tailwindcss/tailwindcss-original.svg` },
-  ]},
-  { group: 'Database', items: [
-    { name: 'PostgreSQL (Basic)',  logo: `${DI}/postgresql/postgresql-original.svg` },
-    { name: 'MySQL (Basic)',       logo: `${DI}/mysql/mysql-original.svg` },
-  ]},
-  { group: 'Tools & Workflow', items: [
-    { name: 'Git',         logo: `${DI}/git/git-original.svg` },
-    { name: 'GitHub',      logo: `${DI}/github/github-original.svg`, invert: true },
-    { name: 'VS Code',     logo: `${DI}/vscode/vscode-original.svg` },
-    { name: 'ClickUp',     logo: 'https://cdn.simpleicons.org/clickup' },
-    { name: 'AI-Assisted Dev', icon: '🤖' },
-  ]},
-  { group: 'Academic Exposure', items: [
-    { name: 'Blockchain Concepts',           logo: `${DI}/ethereum/ethereum-original.svg` },
-    { name: 'Hyperledger Fabric (Concepts)', logo: `${DI}/apachekafka/apachekafka-original.svg`, invert: true },
-    { name: 'ML Workflow (Academic)',         logo: `${DI}/tensorflow/tensorflow-original.svg` },
-  ]},
-]
-
-const PROJECTS = [
-  {
-    num: '01',
-    title: 'Tamurfood — B2B Bakery Ordering',
-    tag: 'Solo Project · Deployed (Demo) · 2026',
-    preview: 'https://cdn.jsdelivr.net/gh/abdullahxDNA/Tamurfood@main/docs/screenshots/demo.gif',
-    desc: 'A full-stack B2B ordering platform for a neighbourhood bakery, built solo and deployed for demo/testing. Nearby shops order from a live menu; bakery staff fulfil and deliver in real time. Features three-tier role-based access (admin/moderator/shop), real-time order updates over SSE, a per-shop "Khata" credit ledger with partial payments, concurrency-safe inventory, and an analytics dashboard. I wrote the PRD, designed the data model and workflows, and built the full monorepo (Hono API + React frontend) from scratch.',
-    stack: ['React 19', 'Hono', 'Bun', 'PostgreSQL', 'Drizzle ORM', 'Better Auth', 'Server-Sent Events', 'Tailwind CSS'],
-    link: 'https://github.com/abdullahxDNA/Tamurfood',
-    demo: 'https://tampurfood-production.up.railway.app/',
-  },
-  {
-    num: '02',
-    title: 'DeshGhuri — Travel Marketplace',
-    tag: 'Team Project · 2025–2026',
-    desc: 'Wrote the PRD and managed feature breakdown in ClickUp. My contribution: seller authentication routes, seller dashboard backend API, and admin verification system. Collaborated with 2 teammates using Git branching workflow.',
-    stack: ['React', 'TanStack Router', 'Hono', 'PostgreSQL', 'Drizzle ORM', 'Tailwind CSS'],
-    link: 'https://github.com/samin124/DeshGhuri',
-    demo: '', // ← paste the live/deployed URL here to show a "Live Demo" button
-  },
-  {
-    num: '03',
-    title: 'Agrifood Blockchain Supply Chain',
-    tag: 'B.Sc. Thesis · 2024–2025',
-    desc: 'Designed the traceability workflow for farmer → retailer → customer lifecycle. Understood and documented Hyperledger Fabric concepts. Contributed to testing, documentation, and thesis presentation. Chaincode was AI-assisted.',
-    stack: ['Hyperledger Fabric', 'Go (AI-assisted)', 'Docker', 'CouchDB'],
-    link: 'https://github.com/abdullahxDNA/agrifood-blockchain-hyperledger',
-  },
-  {
-    num: '04',
-    title: 'Lung Cancer Detection — Ensemble CNNs',
-    tag: 'University Project · 2025',
-    desc: 'Academic project combining Xception and ResNet50 for medical image classification. Worked on dataset preparation, training workflow, and evaluation metrics. Note: academic learning project only.',
-    stack: ['Python', 'TensorFlow', 'Keras', 'Scikit-learn'],
-    link: 'https://github.com/abdullahxDNA/lung_cancer_prediction_using_ML',
-  },
-]
-
-const CERTS = [
-  { name: 'Fullstack Blockchain Development — NonAcademy (Batch 02), 2025', file: '/certificates/non-academy.png' },
-  { name: 'Front-End Development — EDGE Project, CUET / Bangladesh Computer Council, 2024', file: '/certificates/edge-certificate.pdf' },
-  { name: 'Introduction to Blockchain Technology — Ostad', file: '/certificates/blockchain-ostad.pdf' },
-  { name: 'Online Leadership Course — Aspire Leaders Program, 2023', file: '/certificates/harvard-leadership.pdf' },
-]
-
-const ACHIEVEMENTS = [
-  { name: 'IIUC Business Case Competition (IIUCBCC)', file: '/certificates/iiucbcc.pdf' },
-  { name: 'Face the Case — IEEE IIUC Student Branch', file: '/certificates/face-the-case-ieee.pdf' },
-  { name: 'Debate Competition — IIUC', file: '/certificates/debate-iiuc.jpg' },
-  { name: 'Hult Prize — IIUC Campus Round', file: '/certificates/hult-prize.png' },
-  { name: 'IDEA-GEN Competition', file: '/certificates/idea-gen.jpg' },
-  { name: 'Event Ambassador', file: '/certificates/event-ambassador.png' },
-]
+import { CONTACT, ROLES, PITCH, SKILLS, PROJECTS, CERTS, ACHIEVEMENTS, EDUCATION } from './data'
 
 function useTypewriter(words) {
   const [index, setIndex] = useState(0)
@@ -208,12 +110,7 @@ function Hero() {
             <span className="hero__typed">{role}</span>
             <span className="hero__cursor" aria-hidden="true">|</span>
           </p>
-          <p className="hero__pitch">
-            Computer Science &amp; Engineering graduate with practical team project experience
-            in web development using React, Hono, and PostgreSQL. Comfortable with PRD-based
-            planning, Git workflow, and AI-assisted development. Open to roles in web development,
-            IT support, software QA, data entry, and any IT-related field.
-          </p>
+          <p className="hero__pitch">{PITCH}</p>
           <div className="hero__actions">
             <a className="btn btn--primary" href="#projects">View Projects</a>
             <a className="btn btn--cv" href="/MD_Abdullah_CV.pdf" download="MD_Abdullah_CV.pdf">↓ Download CV</a>
@@ -306,30 +203,16 @@ function About() {
         <div className="card">
           <h3 className="card__title card__title--sm">Education</h3>
           <div className="edu__list">
-            <div className="edu__item">
-              <div className="edu__year">2021 – 2025</div>
-              <div className="edu__body">
-                <p className="edu__degree">B.Sc. in Computer Science &amp; Engineering</p>
-                <p className="edu__inst">International Islamic University Chittagong (IIUC)</p>
-                <span className="edu__badge">CGPA 3.367</span>
+            {EDUCATION.map((e) => (
+              <div key={e.degree} className="edu__item">
+                <div className="edu__year">{e.year}</div>
+                <div className="edu__body">
+                  <p className="edu__degree">{e.degree}</p>
+                  <p className="edu__inst">{e.inst}</p>
+                  <span className="edu__badge">{e.badge}</span>
+                </div>
               </div>
-            </div>
-            <div className="edu__item">
-              <div className="edu__year">2018 – 2019</div>
-              <div className="edu__body">
-                <p className="edu__degree">Higher Secondary Certificate (HSC) — Science</p>
-                <p className="edu__inst">Hazera-Taju University College</p>
-                <span className="edu__badge">GPA 4.33</span>
-              </div>
-            </div>
-            <div className="edu__item">
-              <div className="edu__year">2016 – 2017</div>
-              <div className="edu__body">
-                <p className="edu__degree">Secondary School Certificate (SSC) — Science</p>
-                <p className="edu__inst">CDA Public School and College</p>
-                <span className="edu__badge">GPA 5.00</span>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
         <div className="card">
