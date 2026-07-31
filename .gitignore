@@ -3,3 +3,8 @@ dist
 .DS_Store
 *.local
 .env
+
+# Local job-application files and PDF tooling (not part of the site)
+fill_form.py
+.pdfvenv/
+*Application-form*.pdf
