@@ -5,9 +5,7 @@ backend:
   name: github
   repo: abdullahxDNA/Portfolio
   branch: main
-  # ── Replace the line below with your deployed auth worker URL ──
-  # e.g. https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
-  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+  base_url: https://sveltia-cms-auth.mdabdullah10301.workers.dev
 
 # Uploaded files (e.g. certificate PDFs/images) go here.
 media_folder: "public/certificates"
