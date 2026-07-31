@@ -1,0 +1,146 @@
+# Sveltia CMS configuration
+# Docs: https://github.com/sveltia/sveltia-cms
+
+backend:
+  name: github
+  repo: abdullahxDNA/Portfolio
+  branch: main
+  # ── Replace the line below with your deployed auth worker URL ──
+  # e.g. https://sveltia-cms-auth.YOUR-SUBDOMAIN.workers.dev
+  base_url: https://REPLACE-WITH-YOUR-WORKER.workers.dev
+
+# Uploaded files (e.g. certificate PDFs/images) go here.
+media_folder: "public/certificates"
+public_folder: "/certificates"
+
+# Commit message shown in your Git history when you save in the admin panel.
+site_url: https://mdabdullah.dev
+display_url: https://mdabdullah.dev
+
+collections:
+  # ── Hero & Contact ────────────────────────────────────────────────
+  - name: basics
+    label: "Hero & Contact"
+    files:
+      - name: general
+        label: "Hero (Roles & Pitch)"
+        file: "src/content/general.json"
+        fields:
+          - name: roles
+            label: "Rotating roles (typewriter)"
+            widget: list
+            field: { name: role, label: Role, widget: string }
+          - name: pitch
+            label: "Intro paragraph"
+            widget: text
+
+      - name: contact
+        label: "Contact Info"
+        file: "src/content/contact.json"
+        fields:
+          - { name: name, label: Name, widget: string }
+          - { name: location, label: Location, widget: string }
+          - { name: email, label: Email, widget: string }
+          - { name: phone, label: Phone, widget: string }
+          - { name: linkedin, label: LinkedIn URL, widget: string }
+          - { name: github, label: GitHub URL, widget: string }
+
+  # ── Projects ──────────────────────────────────────────────────────
+  - name: projects
+    label: "Projects"
+    files:
+      - name: projects
+        label: "Projects list"
+        file: "src/content/projects.json"
+        fields:
+          - name: items
+            label: Projects
+            widget: list
+            summary: "{{fields.num}} — {{fields.title}}"
+            fields:
+              - { name: num, label: "Number badge (e.g. 01)", widget: string }
+              - { name: title, label: Title, widget: string }
+              - { name: tag, label: "Tag line", widget: string }
+              - { name: featured, label: "Featured ribbon text (optional)", widget: string, required: false }
+              - { name: preview, label: "Preview image/GIF URL (optional)", widget: string, required: false }
+              - { name: desc, label: Description, widget: text }
+              - name: stack
+                label: "Tech stack"
+                widget: list
+                field: { name: tech, label: Tech, widget: string }
+              - { name: link, label: "Source/GitHub URL", widget: string }
+              - { name: demo, label: "Live demo URL (optional)", widget: string, required: false }
+
+  # ── Skills ────────────────────────────────────────────────────────
+  - name: skills
+    label: "Skills"
+    files:
+      - name: skills
+        label: "Skill groups"
+        file: "src/content/skills.json"
+        fields:
+          - name: groups
+            label: Groups
+            widget: list
+            summary: "{{fields.group}}"
+            fields:
+              - { name: group, label: "Group name", widget: string }
+              - name: items
+                label: Skills
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: Name, widget: string }
+                  - { name: logo, label: "Logo URL (optional if using emoji)", widget: string, required: false }
+                  - { name: icon, label: "Emoji icon (optional)", widget: string, required: false }
+                  - { name: invert, label: "Invert logo in dark mode", widget: boolean, required: false, default: false }
+
+  # ── Certifications ────────────────────────────────────────────────
+  - name: certs
+    label: "Certifications"
+    files:
+      - name: certs
+        label: "Certifications list"
+        file: "src/content/certs.json"
+        fields:
+          - name: items
+            label: Certifications
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: file, label: "Certificate file", widget: file }
+
+  # ── Achievements ──────────────────────────────────────────────────
+  - name: achievements
+    label: "Achievements"
+    files:
+      - name: achievements
+        label: "Achievements list"
+        file: "src/content/achievements.json"
+        fields:
+          - name: items
+            label: Achievements
+            widget: list
+            summary: "{{fields.name}}"
+            fields:
+              - { name: name, label: Name, widget: string }
+              - { name: file, label: "Certificate file", widget: file }
+
+  # ── Education ─────────────────────────────────────────────────────
+  - name: education
+    label: "Education"
+    files:
+      - name: education
+        label: "Education list"
+        file: "src/content/education.json"
+        fields:
+          - name: items
+            label: Education
+            widget: list
+            summary: "{{fields.degree}}"
+            fields:
+              - { name: year, label: Years, widget: string }
+              - { name: degree, label: Degree, widget: string }
+              - { name: inst, label: Institution, widget: string }
+              - { name: badge, label: "Badge (e.g. CGPA)", widget: string }

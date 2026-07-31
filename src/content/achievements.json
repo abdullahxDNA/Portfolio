@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "name": "IIUC Business Case Competition (IIUCBCC)", "file": "/certificates/iiucbcc.pdf" },
+    { "name": "Face the Case — IEEE IIUC Student Branch", "file": "/certificates/face-the-case-ieee.pdf" },
+    { "name": "Debate Competition — IIUC", "file": "/certificates/debate-iiuc.jpg" },
+    { "name": "Hult Prize — IIUC Campus Round", "file": "/certificates/hult-prize.png" },
+    { "name": "IDEA-GEN Competition", "file": "/certificates/idea-gen.jpg" },
+    { "name": "Event Ambassador", "file": "/certificates/event-ambassador.png" }
+  ]
+}
