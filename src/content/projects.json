@@ -31,6 +31,10 @@
       "featured": "",
       "preview": "https://cdn.jsdelivr.net/gh/abdullahxDNA/Tamurfood@main/docs/screenshots/demo.gif",
       "desc": "A full-stack B2B ordering platform for a neighbourhood bakery, containerized with Docker and deployed on Render with 24/7 uptime monitoring. Nearby shops order from a live menu; bakery staff fulfil and deliver in real time. Features three-tier role-based access (admin/moderator/shop), real-time order updates over SSE, a per-shop \"Khata\" credit ledger with partial payments, concurrency-safe inventory, Supabase S3 image storage, and Sentry exception tracking.",
+      "demoAccounts": [
+        { "role": "Shop User", "user": "01812345678", "pass": "asif123" },
+        { "role": "Moderator", "user": "01987654321", "pass": "mod123" }
+      ],
       "stack": [
         "React 19",
         "Hono",

@@ -147,6 +147,18 @@ function Projects() {
               </a>
             )}
             <p className="card__desc">{p.desc}</p>
+            {p.demoAccounts && (
+              <div className="card__demo-box">
+                <span className="card__demo-title">🔑 Live Demo Access:</span>
+                <div className="card__demo-creds">
+                  {p.demoAccounts.map((acc, i) => (
+                    <span key={i} className="card__demo-chip">
+                      <strong>{acc.role}:</strong> <code>{acc.user}</code> (pass: <code>{acc.pass}</code>)
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
             <ul className="chips">
               {p.stack.map((s) => (
                 <li key={s} className="chip">{s}</li>
