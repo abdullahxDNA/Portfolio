@@ -5,7 +5,7 @@
       "title": "Footprint — E-Commerce Footwear Platform",
       "tag": "Solo Project · Deployed (Live) · 2026",
       "featured": "Featured",
-      "preview": "/projects/footprint.png",
+      "preview": "/projects/footprint.gif",
       "desc": "A production-grade footwear e-commerce storefront and admin operations platform. Features responsive catalog browsing, shopping cart, checkout protected with Cloudflare Turnstile anti-abuse bot mitigation, automated Pathao courier logistics integration, admin inventory management, Supabase S3 storage, Microsoft Clarity session analytics, and real-time Sentry error tracking. Containerized with Docker and deployed on Render with 24/7 uptime monitoring.",
       "stack": [
         "React",
@@ -22,7 +22,7 @@
         "Tailwind CSS"
       ],
       "link": "https://github.com/abdullahxDNA/footprint",
-      "demo": "https://footprint-store.onrender.com"
+      "demo": "https://footprint-h0d8.onrender.com"
     },
     {
       "num": "02",
