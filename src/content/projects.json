@@ -2,11 +2,35 @@
   "items": [
     {
       "num": "01",
+      "title": "Footprint — E-Commerce Footwear Platform",
+      "tag": "Solo Project · Deployed (Live) · 2026",
+      "featured": "Featured",
+      "preview": "/projects/footprint.png",
+      "desc": "A production-grade footwear e-commerce storefront and admin operations platform. Features responsive catalog browsing, shopping cart, checkout protected with Cloudflare Turnstile anti-abuse bot mitigation, automated Pathao courier logistics integration, admin inventory management, Supabase S3 storage, Microsoft Clarity session analytics, and real-time Sentry error tracking. Containerized with Docker and deployed on Render with 24/7 uptime monitoring.",
+      "stack": [
+        "React",
+        "Bun",
+        "Hono",
+        "PostgreSQL",
+        "Drizzle ORM",
+        "Better Auth",
+        "Docker",
+        "Render",
+        "Cloudflare Turnstile",
+        "Microsoft Clarity",
+        "Sentry",
+        "Tailwind CSS"
+      ],
+      "link": "https://github.com/abdullahxDNA/footprint",
+      "demo": "https://footprint-store.onrender.com"
+    },
+    {
+      "num": "02",
       "title": "Tamurfood — B2B Bakery Ordering",
-      "tag": "Solo Project · Deployed (Demo) · 2026",
+      "tag": "Solo Project · Deployed (Live) · 2026",
       "featured": "",
       "preview": "https://cdn.jsdelivr.net/gh/abdullahxDNA/Tamurfood@main/docs/screenshots/demo.gif",
-      "desc": "A full-stack B2B ordering platform for a neighbourhood bakery, built solo and deployed for demo/testing. Nearby shops order from a live menu; bakery staff fulfil and deliver in real time. Features three-tier role-based access (admin/moderator/shop), real-time order updates over SSE, a per-shop \"Khata\" credit ledger with partial payments, concurrency-safe inventory, and an analytics dashboard. I wrote the PRD, designed the data model and workflows, and built the full monorepo (Hono API + React frontend) from scratch.",
+      "desc": "A full-stack B2B ordering platform for a neighbourhood bakery, containerized with Docker and deployed on Render with 24/7 uptime monitoring. Nearby shops order from a live menu; bakery staff fulfil and deliver in real time. Features three-tier role-based access (admin/moderator/shop), real-time order updates over SSE, a per-shop \"Khata\" credit ledger with partial payments, concurrency-safe inventory, Supabase S3 image storage, and Sentry exception tracking.",
       "stack": [
         "React 19",
         "Hono",
@@ -15,13 +39,17 @@
         "Drizzle ORM",
         "Better Auth",
         "Server-Sent Events",
+        "Docker",
+        "Render",
+        "UptimeRobot",
+        "Sentry",
         "Tailwind CSS"
       ],
       "link": "https://github.com/abdullahxDNA/Tamurfood",
-      "demo": ""
+      "demo": "https://tamurfood.onrender.com"
     },
     {
-      "num": "02",
+      "num": "03",
       "title": "DeshGhuri — Travel Marketplace",
       "tag": "Team Project · 2025–2026",
       "featured": "",
@@ -39,7 +67,7 @@
       "demo": ""
     },
     {
-      "num": "03",
+      "num": "04",
       "title": "Agrifood Blockchain Supply Chain",
       "tag": "B.Sc. Thesis · 2024–2025",
       "featured": "",
@@ -55,7 +83,7 @@
       "demo": ""
     },
     {
-      "num": "04",
+      "num": "05",
       "title": "Lung Cancer Detection — Ensemble CNNs",
       "tag": "University Project · 2025",
       "featured": "",
