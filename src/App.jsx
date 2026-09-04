@@ -230,13 +230,13 @@ function Projects() {
           return (
             <article key={p.title} className={`card ${p.featured ? 'card--featured' : ''} ${isExpanded ? 'card--expanded' : ''}`}>
               <span className="card__num" aria-hidden="true">{p.num}</span>
-              {p.featured && <span className="card__featured">★ {p.featured}</span>}
               
               <div className="card__meta">
                 <span className={`card__tag ${isProduction ? 'card__tag--live' : ''}`}>
                   {isProduction && <span className="pulse-dot" aria-hidden="true"></span>}
                   {p.tag}
                 </span>
+                {p.featured && <span className="card__featured">★ {p.featured}</span>}
               </div>
 
               <h3 className="card__title">{p.title}</h3>

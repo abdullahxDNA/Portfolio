@@ -394,6 +394,10 @@ html.light .tab-btn--active .tab-btn__count {
 .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
 .grid--skills { grid-template-columns: repeat(3, 1fr); }
 @media (max-width: 760px) { .grid, .grid--skills { grid-template-columns: 1fr; } }
+@media (max-width: 600px) {
+  .card { padding: 18px 16px; }
+  .card__num { font-size: 2.8rem; top: 10px; right: 14px; }
+}
 
 /* ── Cards ── */
 .card {
@@ -427,6 +431,15 @@ html.light .tab-btn--active .tab-btn__count {
 
 .card:hover .card__num { color: rgba(100,255,218,0.06); }
 
+.card__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
 .card__tag {
   display: inline-flex;
   align-items: center;
@@ -436,7 +449,6 @@ html.light .tab-btn--active .tab-btn__count {
   border: 1px solid rgba(100,255,218,0.2);
   padding: 3px 10px;
   border-radius: 999px;
-  margin-bottom: 14px;
   font-weight: 600;
   letter-spacing: 0.3px;
 }
@@ -503,11 +515,16 @@ html.light .card__tag--live {
 .card__link--demo:hover { opacity: 0.9; }
 .card--featured { border-color: var(--color-accent); box-shadow: 0 0 0 1px var(--color-accent), 0 8px 30px rgba(100, 255, 218, 0.08); }
 .card__featured {
-  position: absolute; top: 16px; right: 16px;
-  display: inline-flex; align-items: center; gap: 4px;
-  padding: 4px 10px; border-radius: 999px;
-  background: var(--color-accent); color: #06121f;
-  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.3px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  color: #06121f;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
 }
 .card__preview {
   display: flex; justify-content: center;
