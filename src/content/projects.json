@@ -4,9 +4,17 @@
       "num": "01",
       "title": "Footprint — E-Commerce Footwear Platform",
       "tag": "Solo Project · Deployed (Live) · 2026",
+      "category": "production",
       "featured": "Featured",
       "preview": "/projects/footprint.gif",
+      "shortDesc": "Full-stack footwear e-commerce storefront & operations platform with Cloudflare Turnstile anti-bot security, Pathao courier logistics, and Dockerized Render deployment.",
       "desc": "A production-grade footwear e-commerce storefront and admin operations platform. Features responsive catalog browsing, shopping cart, checkout protected with Cloudflare Turnstile anti-abuse bot mitigation, automated Pathao courier logistics integration, admin inventory management, Supabase S3 storage, Microsoft Clarity session analytics, and real-time Sentry error tracking. Containerized with Docker and deployed on Render with 24/7 uptime monitoring.",
+      "highlights": [
+        "Secured checkout with Cloudflare Turnstile anti-bot mitigation and server-side token validation",
+        "Automated logistics API integration with Pathao Courier for one-click consignment dispatch and live tracking",
+        "Multi-stage Docker containerization running Bun + Hono API and React SPA on Render with Supabase PostgreSQL & S3",
+        "Comprehensive observability with real-time Sentry exception tracking and 24/7 UptimeRobot health monitoring"
+      ],
       "stack": [
         "React",
         "Bun",
@@ -28,12 +36,20 @@
       "num": "02",
       "title": "Tamurfood — B2B Bakery Ordering",
       "tag": "Solo Project · Deployed (Live) · 2026",
+      "category": "production",
       "featured": "",
       "preview": "https://cdn.jsdelivr.net/gh/abdullahxDNA/Tamurfood@main/docs/screenshots/demo.gif",
+      "shortDesc": "B2B bakery ordering platform with real-time SSE kitchen order fulfillment, per-shop 'Khata' credit ledger, and Dockerized 24/7 cloud deployment.",
       "desc": "A full-stack B2B ordering platform for a neighbourhood bakery, containerized with Docker and deployed on Render with 24/7 uptime monitoring. Nearby shops order from a live menu; bakery staff fulfil and deliver in real time. Features three-tier role-based access (admin/moderator/shop), real-time order updates over SSE, a per-shop \"Khata\" credit ledger with partial payments, concurrency-safe inventory, Supabase S3 image storage, and Sentry exception tracking.",
       "demoAccounts": [
         { "role": "Shop User", "user": "01812345678", "pass": "asif123" },
         { "role": "Moderator", "user": "01987654321", "pass": "mod123" }
+      ],
+      "highlights": [
+        "Real-time order push updates via Server-Sent Events (SSE) for instant kitchen staff dispatch and live fulfillment",
+        "Concurrency-safe daily menu ordering with atomic stock inventory management in PostgreSQL via Drizzle ORM",
+        "Financial Khata credit ledger system tracking shop debt, partial repayments, and running transaction history",
+        "Containerized Docker deployment on Render with automated database migrations, Supabase S3 media storage, and Sentry tracking"
       ],
       "stack": [
         "React 19",
@@ -56,9 +72,17 @@
       "num": "03",
       "title": "DeshGhuri — Travel Marketplace",
       "tag": "Team Project · 2025–2026",
+      "category": "team",
       "featured": "",
       "preview": "",
+      "shortDesc": "Travel marketplace platform for verified tours and bookings, built with React, TanStack Router, Hono, and PostgreSQL.",
       "desc": "Wrote the PRD and managed feature breakdown in ClickUp. My contribution: seller authentication routes, seller dashboard backend API, and admin verification system. Collaborated with 2 teammates using Git branching workflow.",
+      "highlights": [
+        "Engineered secure seller authentication flows (signup, session management) with Hono and Zod schema validation",
+        "Built seller dashboard backend API for booking metrics, revenue analytics, and tour listings with Drizzle ORM",
+        "Integrated Supabase Storage for tour media and developed admin verification review workflow",
+        "Collaborated in an agile 3-developer team utilizing Git branching, ClickUp sprints, and pull request reviews"
+      ],
       "stack": [
         "React",
         "TanStack Router",
@@ -74,9 +98,17 @@
       "num": "04",
       "title": "Agrifood Blockchain Supply Chain",
       "tag": "B.Sc. Thesis · 2024–2025",
+      "category": "blockchain",
       "featured": "",
       "preview": "",
+      "shortDesc": "Permissioned enterprise blockchain network for end-to-end agricultural supply chain traceability (B.Sc. Thesis Project).",
       "desc": "Designed the traceability workflow for farmer → retailer → customer lifecycle. Understood and documented Hyperledger Fabric concepts. Contributed to testing, documentation, and thesis presentation. Chaincode was AI-assisted.",
+      "highlights": [
+        "Designed transparent product traceability lifecycle spanning Farmer → Distributor → Retailer → Consumer",
+        "Modeled multi-organization Hyperledger Fabric network with private data collections and Raft consensus",
+        "Conducted performance, throughput, and transaction latency benchmarking using Hyperledger Caliper",
+        "Published and defended academic thesis with complete Docker Compose network deployment scripts"
+      ],
       "stack": [
         "Hyperledger Fabric",
         "Go (AI-assisted)",
@@ -90,9 +122,17 @@
       "num": "05",
       "title": "Lung Cancer Detection — Ensemble CNNs",
       "tag": "University Project · 2025",
+      "category": "ai",
       "featured": "",
       "preview": "",
+      "shortDesc": "Medical image classification pipeline combining Xception and ResNet50 ensemble deep learning architectures.",
       "desc": "Academic project combining Xception and ResNet50 for medical image classification. Worked on dataset preparation, training workflow, and evaluation metrics. Note: academic learning project only.",
+      "highlights": [
+        "Constructed an ensemble transfer learning pipeline combining pre-trained Xception and ResNet50 convolutional networks",
+        "Engineered data augmentation and preprocessing workflows for pulmonary computed tomography (CT) scan images",
+        "Evaluated model classification performance using multi-class accuracy, precision, recall, and ROC-AUC metrics",
+        "Academic project exploring computer vision and transfer learning applications in medical diagnostics"
+      ],
       "stack": [
         "Python",
         "TensorFlow",

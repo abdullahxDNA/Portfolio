@@ -116,6 +116,27 @@ function Hero() {
             <a className="btn btn--cv" href="/MD_Abdullah_CV.pdf" download="MD_Abdullah_CV.pdf">↓ Download CV</a>
             <a className="btn" href={`mailto:${CONTACT.email}`}>Get in Touch</a>
           </div>
+          <div className="hero__stats">
+            <div className="hero__stat">
+              <span className="hero__stat-num">2</span>
+              <span className="hero__stat-desc">Production Apps Live</span>
+            </div>
+            <div className="hero__stat-div" aria-hidden="true"></div>
+            <div className="hero__stat">
+              <span className="hero__stat-num">24/7</span>
+              <span className="hero__stat-desc">Sentry &amp; Uptime Monitored</span>
+            </div>
+            <div className="hero__stat-div" aria-hidden="true"></div>
+            <div className="hero__stat">
+              <span className="hero__stat-num">100%</span>
+              <span className="hero__stat-desc">Type-Safe Monorepos</span>
+            </div>
+            <div className="hero__stat-div" aria-hidden="true"></div>
+            <div className="hero__stat">
+              <span className="hero__stat-num">3.37</span>
+              <span className="hero__stat-desc">B.Sc. CSE CGPA</span>
+            </div>
+          </div>
         </div>
         <div className="hero__photo-col">
           <Avatar />
@@ -130,52 +151,222 @@ function Hero() {
   )
 }
 
+function CopyButton({ text, label = 'Copy' }) {
+  const [copied, setCopied] = useState(false)
+  const handleCopy = (e) => {
+    e.stopPropagation()
+    navigator.clipboard.writeText(text)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1800)
+  }
+  return (
+    <button
+      type="button"
+      className={`copy-btn ${copied ? 'copy-btn--copied' : ''}`}
+      onClick={handleCopy}
+      title={`Copy ${label}`}
+      aria-label={`Copy ${label}`}
+    >
+      {copied ? (
+        <>
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <polyline points="20 6 9 17 4 12"></polyline>
+          </svg>
+          <span>Copied</span>
+        </>
+      ) : (
+        <>
+          <svg viewBox="0 0 24 24" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+          <span>Copy</span>
+        </>
+      )}
+    </button>
+  )
+}
+
+const CATEGORY_TABS = [
+  { id: 'all', label: 'All Projects', icon: '📁' },
+  { id: 'production', label: 'Production Live', icon: '🚀' },
+  { id: 'team', label: 'Team Collaboration', icon: '👥' },
+  { id: 'blockchain', label: 'Blockchain', icon: '⛓️' },
+  { id: 'ai', label: 'AI & ML', icon: '🧠' }
+]
+
 function Projects() {
+  const [activeTab, setActiveTab] = useState('all')
+  const [expandedCards, setExpandedCards] = useState({})
+
+  const toggleExpand = (num) => {
+    setExpandedCards(prev => ({ ...prev, [num]: !prev[num] }))
+  }
+
+  const filteredProjects = activeTab === 'all'
+    ? PROJECTS
+    : PROJECTS.filter(p => p.category === activeTab)
+
+  const getTabCount = (tabId) => {
+    if (tabId === 'all') return PROJECTS.length
+    return PROJECTS.filter(p => p.category === tabId).length
+  }
+
   return (
     <section id="projects" className="section">
-      <h2 className="section__title">Selected Projects</h2>
+      <div className="section__header-row">
+        <div>
+          <h2 className="section__title">Selected Projects</h2>
+          <p className="section__subtitle">Production web applications, team projects, and academic research.</p>
+        </div>
+      </div>
+
+      {/* Category Filter Tabs */}
+      <div className="project-tabs" role="tablist" aria-label="Project categories">
+        {CATEGORY_TABS.map((tab) => {
+          const count = getTabCount(tab.id)
+          const isActive = activeTab === tab.id
+          return (
+            <button
+              key={tab.id}
+              role="tab"
+              aria-selected={isActive}
+              className={`tab-btn ${isActive ? 'tab-btn--active' : ''}`}
+              onClick={() => setActiveTab(tab.id)}
+            >
+              <span className="tab-btn__icon" aria-hidden="true">{tab.icon}</span>
+              <span className="tab-btn__label">{tab.label}</span>
+              <span className="tab-btn__count">{count}</span>
+            </button>
+          )
+        })}
+      </div>
+
+      {/* Projects Grid */}
       <div className="grid">
-        {PROJECTS.map((p) => (
-          <article key={p.title} className={`card ${p.featured ? 'card--featured' : ''}`}>
-            <span className="card__num" aria-hidden="true">{p.num}</span>
-            {p.featured && <span className="card__featured">★ {p.featured}</span>}
-            <span className="card__tag">{p.tag}</span>
-            <h3 className="card__title">{p.title}</h3>
-            {p.preview && (
-              <a className="card__preview" href={p.demo || p.link} target="_blank" rel="noreferrer" aria-label={`${p.title} demo`}>
-                <img src={p.preview} alt={`${p.title} demo preview`} loading="lazy" />
-              </a>
-            )}
-            <p className="card__desc">{p.desc}</p>
-            {p.demoAccounts && (
-              <div className="card__demo-box">
-                <span className="card__demo-title">🔑 Live Demo Access:</span>
-                <div className="card__demo-creds">
-                  {p.demoAccounts.map((acc, i) => (
-                    <span key={i} className="card__demo-chip">
-                      <strong>{acc.role}:</strong> <code>{acc.user}</code> (pass: <code>{acc.pass}</code>)
-                    </span>
-                  ))}
-                </div>
+        {filteredProjects.map((p) => {
+          const isExpanded = !!expandedCards[p.num]
+          const isProduction = p.category === 'production'
+
+          return (
+            <article key={p.title} className={`card ${p.featured ? 'card--featured' : ''} ${isExpanded ? 'card--expanded' : ''}`}>
+              <span className="card__num" aria-hidden="true">{p.num}</span>
+              {p.featured && <span className="card__featured">★ {p.featured}</span>}
+              
+              <div className="card__meta">
+                <span className={`card__tag ${isProduction ? 'card__tag--live' : ''}`}>
+                  {isProduction && <span className="pulse-dot" aria-hidden="true"></span>}
+                  {p.tag}
+                </span>
               </div>
-            )}
-            <ul className="chips">
-              {p.stack.map((s) => (
-                <li key={s} className="chip">{s}</li>
-              ))}
-            </ul>
-            <div className="card__links">
-              {p.demo && (
-                <a className="card__link card__link--demo" href={p.demo} target="_blank" rel="noreferrer">
-                  Live Demo &rarr;
+
+              <h3 className="card__title">{p.title}</h3>
+
+              {p.preview && (
+                <a className="card__preview" href={p.demo || p.link} target="_blank" rel="noreferrer" aria-label={`${p.title} demo`}>
+                  <img src={p.preview} alt={`${p.title} demo preview`} loading="lazy" />
                 </a>
               )}
-              <a className="card__link" href={p.link} target="_blank" rel="noreferrer">
-                View on GitHub &rarr;
-              </a>
-            </div>
-          </article>
-        ))}
+
+              {/* Punchy short description shown by default */}
+              <p className="card__desc card__desc--summary">{p.shortDesc || p.desc}</p>
+
+              {/* Quick links & stack preview */}
+              <div className="card__actions-row">
+                <div className="card__links">
+                  {p.demo && (
+                    <a className="card__link card__link--demo" href={p.demo} target="_blank" rel="noreferrer">
+                      Live Demo &rarr;
+                    </a>
+                  )}
+                  <a className="card__link" href={p.link} target="_blank" rel="noreferrer">
+                    View on GitHub &rarr;
+                  </a>
+                </div>
+
+                {/* Expand / Collapse Button */}
+                <button
+                  type="button"
+                  className="card__expand-btn"
+                  onClick={() => toggleExpand(p.num)}
+                  aria-expanded={isExpanded}
+                >
+                  <span>{isExpanded ? 'Hide Details' : 'View Architecture & Details'}</span>
+                  <svg
+                    className={`card__expand-icon ${isExpanded ? 'card__expand-icon--open' : ''}`}
+                    viewBox="0 0 24 24"
+                    width="15"
+                    height="15"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2.4"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                  </svg>
+                </button>
+              </div>
+
+              {/* Tech stack chips */}
+              <ul className="chips">
+                {p.stack.map((s) => (
+                  <li key={s} className="chip">{s}</li>
+                ))}
+              </ul>
+
+              {/* Expanded Technical Details Drawer */}
+              {isExpanded && (
+                <div className="card__drawer">
+                  <div className="card__drawer-inner">
+                    <h4 className="card__drawer-heading">Overview</h4>
+                    <p className="card__desc">{p.desc}</p>
+
+                    {p.highlights && p.highlights.length > 0 && (
+                      <div className="card__highlights">
+                        <h4 className="card__drawer-heading">Key Engineering Highlights</h4>
+                        <ul className="card__highlights-list">
+                          {p.highlights.map((h, i) => (
+                            <li key={i}>
+                              <svg viewBox="0 0 20 20" width="14" height="14" fill="var(--color-accent)" className="check-icon" aria-hidden="true">
+                                <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                              </svg>
+                              <span>{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    )}
+
+                    {p.demoAccounts && (
+                      <div className="card__demo-box">
+                        <span className="card__demo-title">🔑 Live Demo Access Credentials:</span>
+                        <div className="card__demo-creds">
+                          {p.demoAccounts.map((acc, i) => (
+                            <div key={i} className="card__demo-chip">
+                              <span className="card__role-label">{acc.role}:</span>
+                              <div className="card__cred-pair">
+                                <span className="card__cred-val">
+                                  <code>{acc.user}</code>
+                                  <CopyButton text={acc.user} label={`${acc.role} user`} />
+                                </span>
+                                <span className="card__cred-val">
+                                  <code>{acc.pass}</code>
+                                  <CopyButton text={acc.pass} label={`${acc.role} pass`} />
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+            </article>
+          )
+        })}
       </div>
     </section>
   )
@@ -263,15 +454,49 @@ function Contact() {
     <section id="contact" className="section section--contact">
       <h2 className="section__title">Let&rsquo;s work together</h2>
       <p className="contact__lead">
-        Open to any IT-related opportunity. Feel free to reach out.
+        Open to full-time engineering opportunities, remote or on-site. Feel free to reach out directly.
       </p>
       <div className="contact__links">
-        <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-        <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}>{CONTACT.phone}</a>
-        <a href={CONTACT.linkedin} target="_blank" rel="noreferrer">LinkedIn</a>
-        <a href={CONTACT.github} target="_blank" rel="noreferrer">GitHub</a>
+        <div className="contact__link-item">
+          <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+          <CopyButton text={CONTACT.email} label="email" />
+        </div>
+        <div className="contact__link-item">
+          <a href={`tel:${CONTACT.phone.replace(/\s/g, '')}`}>{CONTACT.phone}</a>
+          <CopyButton text={CONTACT.phone} label="phone" />
+        </div>
+        <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="contact__social-link">LinkedIn &rarr;</a>
+        <a href={CONTACT.github} target="_blank" rel="noreferrer" className="contact__social-link">GitHub &rarr;</a>
       </div>
     </section>
+  )
+}
+
+function BackToTop() {
+  const [visible, setVisible] = useState(false)
+
+  useEffect(() => {
+    const onScroll = () => {
+      setVisible(window.scrollY > 450)
+    }
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  if (!visible) return null
+
+  return (
+    <button
+      type="button"
+      className="back-to-top"
+      onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      aria-label="Back to top"
+      title="Back to top"
+    >
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <polyline points="18 15 12 9 6 15"></polyline>
+      </svg>
+    </button>
   )
 }
 
@@ -279,7 +504,7 @@ export default function App() {
   const [year] = useState(() => new Date().getFullYear())
 
   useEffect(() => {
-    document.title = `${CONTACT.name} — Web Developer`
+    document.title = `${CONTACT.name} — Full-Stack Engineer`
   }, [])
 
   return (
@@ -295,6 +520,7 @@ export default function App() {
       <footer className="footer">
         <p>© {year} {CONTACT.name}</p>
       </footer>
+      <BackToTop />
     </>
   )
 }
