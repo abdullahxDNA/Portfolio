@@ -116,27 +116,6 @@ function Hero() {
             <a className="btn btn--cv" href="/MD_Abdullah_CV.pdf" download="MD_Abdullah_CV.pdf">↓ Download CV</a>
             <a className="btn" href={`mailto:${CONTACT.email}`}>Get in Touch</a>
           </div>
-          <div className="hero__stats">
-            <div className="hero__stat">
-              <span className="hero__stat-num">2</span>
-              <span className="hero__stat-desc">Production Apps Live</span>
-            </div>
-            <div className="hero__stat-div" aria-hidden="true"></div>
-            <div className="hero__stat">
-              <span className="hero__stat-num">24/7</span>
-              <span className="hero__stat-desc">Sentry &amp; Uptime Monitored</span>
-            </div>
-            <div className="hero__stat-div" aria-hidden="true"></div>
-            <div className="hero__stat">
-              <span className="hero__stat-num">100%</span>
-              <span className="hero__stat-desc">Type-Safe Monorepos</span>
-            </div>
-            <div className="hero__stat-div" aria-hidden="true"></div>
-            <div className="hero__stat">
-              <span className="hero__stat-num">3.37</span>
-              <span className="hero__stat-desc">B.Sc. CSE CGPA</span>
-            </div>
-          </div>
         </div>
         <div className="hero__photo-col">
           <Avatar />
