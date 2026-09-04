@@ -168,7 +168,7 @@ function CopyButton({ text, label = 'Copy' }) {
 
 const CATEGORY_TABS = [
   { id: 'all', label: 'All Projects', icon: '📁' },
-  { id: 'production', label: 'Production Live', icon: '🚀' },
+  { id: 'production', label: 'Deployed Live', icon: '🚀' },
   { id: 'team', label: 'Team Collaboration', icon: '👥' },
   { id: 'blockchain', label: 'Blockchain', icon: '⛓️' },
   { id: 'ai', label: 'AI & ML', icon: '🧠' }
@@ -196,7 +196,7 @@ function Projects() {
       <div className="section__header-row">
         <div>
           <h2 className="section__title">Selected Projects</h2>
-          <p className="section__subtitle">Production web applications, team projects, and academic research.</p>
+          <p className="section__subtitle">Deployed cloud applications, team projects, and academic research.</p>
         </div>
       </div>
 
