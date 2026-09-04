@@ -8,7 +8,7 @@
       "featured": "Featured",
       "preview": "/projects/footprint.gif",
       "shortDesc": "Full-stack footwear e-commerce storefront & operations platform with Cloudflare Turnstile anti-bot security, Pathao courier logistics, and Dockerized Render deployment.",
-      "desc": "A full-stack footwear e-commerce storefront and admin operations platform. Features responsive catalog browsing, shopping cart, checkout protected with Cloudflare Turnstile anti-abuse bot mitigation, automated Pathao courier logistics integration, admin inventory management, Supabase S3 storage, Microsoft Clarity session analytics, and real-time Sentry error tracking. Containerized with Docker and deployed on Render with 24/7 uptime monitoring.",
+      "desc": "A full-stack footwear e-commerce storefront and admin operations platform built to explore modern web architecture and real-world retail workflows. Features responsive catalog browsing, shopping cart, checkout protected with Cloudflare Turnstile anti-abuse bot mitigation, automated Pathao courier logistics integration, admin inventory management, Supabase S3 storage, Microsoft Clarity session analytics, and real-time Sentry error tracking. Containerized with Docker and deployed on Render with 24/7 uptime monitoring.",
       "highlights": [
         "Secured checkout with Cloudflare Turnstile anti-bot mitigation and server-side token validation",
         "Automated logistics API integration with Pathao Courier for one-click consignment dispatch and live tracking",

@@ -433,7 +433,7 @@ function Contact() {
     <section id="contact" className="section section--contact">
       <h2 className="section__title">Let&rsquo;s work together</h2>
       <p className="contact__lead">
-        Open to full-time engineering opportunities, remote or on-site. Feel free to reach out directly.
+        Open to Junior Software Engineer, Web Developer, and Trainee/Internship opportunities (remote or on-site). Feel free to reach out directly.
       </p>
       <div className="contact__links">
         <div className="contact__link-item">
